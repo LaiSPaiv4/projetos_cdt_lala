@@ -1,7 +1,7 @@
 # Projetos_cdt
 Repositório dedicado ao estudo e prática de Metodologias Ágeis. Este espaço visa compartilhar conhecimento sobre os frameworks mais populares (Scrum, Kanban, etc.), princípios de desenvolvimento ágil e ferramentas que promovem flexibilidade e eficiência. Sinta-se à vontade para explorar, aprender e contribuir!
 
-## 💻 Introdução ao Git, GitHub e Metodologias Ágeis
+## 💻 Projeto CDT - Projeto finança
 
 **Chega de teoria, é hora de agir!**
 
