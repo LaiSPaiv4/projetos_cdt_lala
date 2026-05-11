@@ -12,3 +12,8 @@ Repositório dedicado ao estudo e prática de Metodologias Ágeis. Este espaço 
 3.  **Codifique e compartilhe:** Adicione seus arquivos, organize suas mudanças com **commits** e use o **push** para enviar tudo para o GitHub. Compartilhe seu progresso com a comunidade!
 
 4.  **Documente seu projeto:** Crie um arquivo `README.md` detalhado. É o seu cartão de visitas e a forma de contar a história do seu código.
+
+
+
+
+# por favor definir as primicias da aplicação.
