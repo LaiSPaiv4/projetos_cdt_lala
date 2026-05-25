@@ -48,7 +48,7 @@ python run.py
 ## 👥 Autores
 
 Este projeto foi desenvolvido com muito carinho e dedicação por:
-* **Lais Renta** — [GitHub da Lais](https://github.com/seu-usuario-aqui)
-* **Henrique Souza** — [GitHub do Henrique](https://github.com/seu-usuario-aqui)
+* **Lais Renta**
+* **Henrique Souza** 
 
 ---
