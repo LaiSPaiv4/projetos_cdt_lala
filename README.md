@@ -1,19 +1,54 @@
-# Projetos_cdt
-Repositório dedicado ao estudo e prática de Metodologias Ágeis. Este espaço visa compartilhar conhecimento sobre os frameworks mais populares (Scrum, Kanban, etc.), princípios de desenvolvimento ágil e ferramentas que promovem flexibilidade e eficiência. Sinta-se à vontade para explorar, aprender e contribuir!
+# ❄️ Pinguim Financeiro - Planejador de Gastos
 
-## 💻 Projeto CDT - Projeto finança
+O **Pinguim Financeiro** é uma aplicação web interativa desenvolvida em Flask para ajudar usuários a organizarem suas finanças de forma simples e visual. Através de uma interface moderna baseada na regra orçamentária 50/30/10/10, o sistema calcula automaticamente a distribuição da renda do usuário e oferece simulações inteligentes para investimentos futuros.
 
-**Chega de teoria, é hora de agir!**
+---
 
-1.  **Crie seu repositório:** Inicie um repositório público no GitHub. Esse será o seu portfólio de projetos.
+## 🚀 Funcionalidades
 
-2.  **Clone para o seu computador:** Baixe o repositório para a sua máquina. É como ter uma cópia local do seu projeto para trabalhar offline.
+* **Tela de Onboarding:** Cadastro simples do nome do usuário, objetivo financeiro, instituição bancária e renda mensal total.
+* **Dashboard Interativo:** Divisão visual automática dos gastos com base na renda informada:
+  * 🔸 **50%** para Contas Fixas
+  * 🟡 **30%** para Moradia e Aluguel
+  * 🟢 **10%** para Lazer e Estilo de Vida
+  * 🟣 **10%** Sobra Líquida para Investimentos
+* **Gráfico de Rosquinha:** Renderização dinâmica dos percentuais utilizando a biblioteca `Chart.js`, adaptando-se visualmente ao tema da página.
+* **Simulador de Investimentos Dinâmico:** Análise comparativa entre **Consórcio** e **Financiamento** para diferentes categorias (Imóveis, Automóveis e Compras Gerais), trazendo alertas realistas sobre análise de risco bancário e juros com base na sobra financeira do usuário.
 
-3.  **Codifique e compartilhe:** Adicione seus arquivos, organize suas mudanças com **commits** e use o **push** para enviar tudo para o GitHub. Compartilhe seu progresso com a comunidade!
+---
 
-4.  **Documente seu projeto:** Crie um arquivo `README.md` detalhado. É o seu cartão de visitas e a forma de contar a história do seu código.
+## 🛠️ Tecnologias Utilizadas
 
+* **Backend:** Python e Flask
+* **Frontend:** HTML5, CSS3 (Variáveis nativas e efeitos de transição) e JavaScript (Vanilla)
+* **Gráficos:** Chart.js
+* **Ícones:** Font Awesome
 
+---
 
+## 📦 Como Rodar o Projeto Localmente (via VS Code)
 
-# por favor definir as primicias da aplicação.
+Para executar este projeto na sua máquina, siga os passos abaixo no terminal do seu VS Code:
+
+### 1. Clonar o Repositório
+```bash
+git clone [https://github.com/LaiSPaiv4/projetos_cdt_lala.git](https://github.com/LaiSPaiv4/projetos_cdt_lala.git)
+```
+
+### 2. Execute o servidor Flask rodando o arquivo principal
+```bash
+python run.py
+```
+
+### 3. Abra o seu navegador e acesse o endereço local gerado pelo Flask:
+[http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+
+---
+
+## 👥 Autores
+
+Este projeto foi desenvolvido com muito carinho e dedicação por:
+* **Lais Renta**
+* **Henrique Souza** 
+
+---
