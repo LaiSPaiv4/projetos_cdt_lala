@@ -33,10 +33,12 @@ Para executar este projeto na sua máquina, siga os passos abaixo no terminal do
 ### 1. Clonar o Repositório
 ```bash
 git clone [https://github.com/LaiSPaiv4/projetos_cdt_lala.git](https://github.com/LaiSPaiv4/projetos_cdt_lala.git)
+```
 
 ### 2. Execute o servidor Flask rodando o arquivo principal
 ```bash
 python run.py
+```
 
 ### 3. Abra o seu navegador e acesse o endereço local gerado pelo Flask:
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
