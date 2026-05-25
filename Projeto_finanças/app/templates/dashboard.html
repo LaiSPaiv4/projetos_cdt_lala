@@ -22,8 +22,8 @@
             <strong>R$ {{ "%.2f"|format(renda_mensal * 0.1) }}</strong>
         </div>
 
-        <div class="budget-item" style="border-left: 6px solid var(--cor-reserva); border-right: 2px solid var(--cor-reserva); border-top: 2px solid var(--cor-reserva); border-bottom: 2px solid var(--cor-reserva); background: rgba(16, 185, 129, 0.05);">
-            <span><i class="fas fa-piggy-bank" style="color: var(--cor-reserva);"></i> Sobrou de fato para Investir (10%):</span>
+        <div class="budget-item" style="border-left: 6px solid var(--cor-essencial); border-right: 2px solid var(--cor-essencial); border-top: 2px solid var(--cor-essencial); border-bottom: 2px solid var(--cor-essencial); background: rgba(16, 185, 129, 0.05);">
+            <span><i class="fas fa-piggy-bank" style="color: var(--cor-essencial)"></i> Sobrou de fato para Investir (10%):</span>
             <strong style="color: var(--cor-reserva);">R$ {{ "%.2f"|format(renda_mensal * 0.1) }}</strong>
         </div>
     </div>
@@ -81,76 +81,97 @@
 </footer>
 
 <script>
-    // Scripts de controle do Gráfico e dos Botões integrados perfeitamente
-    const obterCorTema = () => window.getComputedStyle(document.documentElement).getPropertyValue('--texto-principal').trim();
-    const rendaMensalReal = parseFloat("{{ renda_mensal }}") || 0;
-    const valorSobraInvestimento = rendaMensalReal * 0.10; 
+        const obterCorTema = () => window.getComputedStyle(document.documentElement).getPropertyValue('--texto-principal').trim();
+        const rendaMensalReal = parseFloat("{{ usuario.renda_mensal }}") || 0;
+        const valorSobraInvestimento = rendaMensalReal * 0.10; 
 
-    const ctx = document.getElementById('chartRosquinha').getContext('2d');
-    const meuGrafico = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Contas Fixas', 'Aluguel', 'Lazer', 'Investimento'],
-            datasets: [{
-                data: [rendaMensalReal * 0.5, rendaMensalReal * 0.3, rendaMensalReal * 0.1, valorSobraInvestimento],
-                backgroundColor: ['#ff5722', '#FFB800', '#10b981', '#38bdf8'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            plugins: {
-                legend: { display: true, labels: { color: obterCorTema() } }
+        const ctx = document.getElementById('chartRosquinha').getContext('2d');
+        const meuGrafico = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Contas Fixas', 'Aluguel', 'Lazer', 'Investimento'],
+                datasets: [{
+                    data: [
+                        rendaMensalReal * 0.5,
+                        rendaMensalReal * 0.3,
+                        rendaMensalReal * 0.1,
+                        valorSobraInvestimento
+                    ],
+                    backgroundColor: ['#ff5722', '#FFB800', '#10b981', '#8b5cf6'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: true, labels: { color: obterCorTema() } }
+                }
+            }
+        });
+
+        let modalidadeSelecionada = '';
+
+        function mostrarAbasInterativas(tipo) {
+            modalidadeSelecionada = tipo;
+            const containerTexto = document.getElementById('texto-explicativo-container');
+            const tituloExplicativo = document.getElementById('titulo-explicativo');
+            const corpoExplicativo = document.getElementById('corpo-explicativo');
+            const abaSub = document.getElementById('sub-opcoes');
+            const tituloSub = document.getElementById('titulo-sub-opcao');
+            
+            document.getElementById('resultado-calculo-container').style.display = 'none';
+            containerTexto.style.display = 'block';
+            abaSub.style.display = 'block';
+            
+            if (tipo === 'consorcio') {
+                containerTexto.style.borderLeftColor = "#8b5cf6";
+                tituloExplicativo.innerText = "Estratégia Prática: O Consórcio";
+                corpoExplicativo.innerHTML = `Com sua sobra atual de <strong>R$ ${valorSobraInvestimento.toFixed(2)}</strong>, o consórcio funciona como uma poupança programada sem juros bancários. Como as parcelas se adaptam perfeitamente a valores menores (como R$ 100 a R$ 400), você consegue planejar a compra de bens no médio/longo prazo sem comprometer sua saúde financeira. É a melhor rota para acumular patrimônio de forma realista quando não se tem pressa ou uma grande entrada guardada.`;
+                tituloSub.innerText = "Qual bem você deseja planejar via Consórcio?";
+            } else {
+                containerTexto.style.borderLeftColor = "#ff5722";
+                tituloExplicativo.innerText = "A Realidade do Mercado: O Financiamento";
+                corpoExplicativo.innerHTML = `Financiamentos exigem parcelas altas e aprovação de crédito severa, tornando-se inviáveis com sobras baixas (como R$ 400), pois os bancos barram contratos que passem de 30% da renda. Esta opção só faz sentido prático se você já tiver uma entrada robusta em mãos ou se sua sobra for expressiva para arcar com os juros de mercado. Escolha o financiamento apenas se a necessidade do bem for imediata e você estiver disposto a pagar o dobro pelo preço final.`;
+                tituloSub.innerText = "Selecione a categoria para simular o impacto do Financiamento:";
             }
         }
-    });
 
-    let modalidadeSelecionada = '';
-
-    function mostrarAbasInterativas(tipo) {
-        modalidadeSelecionada = tipo;
-        const containerTexto = document.getElementById('texto-explicativo-container');
-        const tituloExplicativo = document.getElementById('titulo-explicativo');
-        const corpoExplicativo = document.getElementById('corpo-explicativo');
-        const abaSub = document.getElementById('sub-opcoes');
-        const tituloSub = document.getElementById('titulo-sub-opcao');
-        
-        document.getElementById('resultado-calculo-container').style.display = 'none';
-        containerTexto.style.display = 'block';
-        abaSub.style.display = 'block';
-        
-        if (tipo === 'consorcio') {
-            containerTexto.style.borderLeftColor = "var(--cor-estilo-vida)";
-            tituloExplicativo.innerText = "O que é o Consórcio?";
-            corpoExplicativo.innerText = "É um investimento conjunto focado no médio/longo prazo. Você entra em um grupo e poupa parcelas sem juros.";
-            tituloSub.innerText = "Opções disponíveis para Consórcio:";
-        } else {
-            containerTexto.style.borderLeftColor = "var(--cor-essencial)";
-            tituloExplicativo.innerText = "O que é o Financiamento?";
-            corpoExplicativo.innerText = "É uma modalidade de crédito imediata. A instituição quita o bem e você paga parcelas com juros de mercado.";
-            tituloSub.innerText = "Opções disponíveis para Financiamento:";
+        function calcularInvestimento(categoria) {
+            const containerResultado = document.getElementById('resultado-calculo-container');
+            const textoDetalhes = document.getElementById('calc-detalhes-texto');
+            
+            document.getElementById('calc-valor-disponivel').innerText = `R$ ${valorSobraInvestimento.toFixed(2)}`;
+            containerResultado.style.display = 'block';
+            
+            let meses = categoria === 'Imóveis' ? 120 : (categoria === 'Automóveis' ? 60 : 24);
+            let valorEstimadoBem = (valorSobraInvestimento * meses) / 1.12;
+            
+            if (modalidadeSelecionada === 'consorcio') {
+                textoDetalhes.innerHTML = `
+                    <p><strong>Plano de Construção de Patrimônio:</strong></p>
+                    <p>Destinando seus <strong>R$ ${valorSobraInvestimento.toFixed(2)}</strong> mensais para o consórcio de <strong>${categoria}</strong> durante <strong>${meses} meses</strong>, você acumulará um poder de compra estimado em <strong>R$ ${valorEstimadoBem.toFixed(2)}</strong> através de uma carta de crédito, totalmente livre de juros abusivos.</p>
+                    <p style="font-size: 0.9rem; color: var(--texto-secundario);">*Ideal para quem pode esperar a contemplação ou sorteio para pegar o bem de forma inteligente.</p>
+                `;
+            } else {
+                if (valorSobraInvestimento < 500 && (categoria === 'Imóveis' || categoria === 'Automóveis')) {
+                    textoDetalhes.innerHTML = `
+                        <p style="color: #ff5722; font-weight: bold;">❌ Simulação Recusada por Análise de Risco:</p>
+                        <p>Nenhuma instituição aprovaria um financiamento de <strong>${categoria}</strong> com uma parcela de <strong>R$ ${valorSobraInvestimento.toFixed(2)}</strong>, pois o valor mínimo de entrada e mercado exige rendas maiores. Recomendamos usar a aba de Consórcio para construir essa base financeira primeiro.</p>
+                    `;
+                } else {
+                    textoDetalhes.innerHTML = `
+                        <p><strong>Simulação de Crédito Imediato:</strong></p>
+                        <p>Para assumir um financiamento de <strong>${categoria}</strong> com parcelas de <strong>R$ ${valorSobraInvestimento.toFixed(2)}</strong> em <strong>${meses} meses</strong>, o banco liberaria um bem de aproximadamente <strong>R$ ${(valorEstimadoBem * 0.55).toFixed(2)}</strong>.</p>
+                        <p style="font-size: 0.9rem; color: #ff5722;">*Note a diferença: Quase metade do seu dinheiro sumiu em juros e taxas bancárias para que você pudesse ter o bem imediatamente.</p>
+                    `;
+                }
+            }
         }
-    }
 
-    function calcularInvestimento(categoria) {
-        const containerResultado = document.getElementById('resultado-calculo-container');
-        const textoDetalhes = document.getElementById('calc-detalhes-texto');
-        document.getElementById('calc-valor-disponivel').innerText = `R$ ${valorSobraInvestimento.toFixed(2)}`;
-        containerResultado.style.display = 'block';
-        
-        let meses = categoria === 'Imóveis' ? 120 : (categoria === 'Automóveis' ? 60 : 24);
-        let valorEstimado = (valorSobraInvestimento * meses) / 1.15;
-        
-        if (modalidadeSelecionada === 'consorcio') {
-            textoDetalhes.innerHTML = `<p>Aplicando <strong>R$ ${valorSobraInvestimento.toFixed(2)}</strong> em <strong>${categoria}</strong> por consórcio, estima-se uma carta de crédito de <strong>R$ ${valorEstimado.toFixed(2)}</strong> em ${meses} meses sem juros.</p>`;
-        } else {
-            textoDetalhes.innerHTML = `<p>Usando a sua sobra para pagar a parcela de um financiamento de <strong>${categoria}</strong>, você adquire o bem imediatamente, porém assumirá juros de mercado.</p>`;
-        }
-    }
+        const observadorTema = new MutationObserver(() => {
+            meuGrafico.options.plugins.legend.labels.color = obterCorTema();
+            meuGrafico.update();
+        });
+        observadorTema.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    </script>
 
-    const observadorTema = new MutationObserver(() => {
-        meuGrafico.options.plugins.legend.labels.color = obterCorTema();
-        meuGrafico.update();
-    });
-    observadorTema.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-</script>
 {% endblock %}
