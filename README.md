@@ -64,7 +64,7 @@ PROJETOS_CDT_LALA/
 ├── venv/                             # Ambiente virtual Python
 ├── .gitignore                        # Arquivos ignorados pelo Git
 └── LICENSE                           # Licença do repositório
-
+```
 ---
 
 ## 🛠️ Tecnologias Utilizadas
