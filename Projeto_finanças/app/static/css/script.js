@@ -10,7 +10,7 @@ function iniciarContadorPinguim() {
         }
     }
 
-    // Aguarda os 3 segundos regulamentares
+    // Aguarda os 3 segundos regulamentares (OBS: Descartado por enquanto)
     setTimeout(() => {
         if (loadingScreen && resultsScreen) {
             loadingScreen.style.display = 'none';

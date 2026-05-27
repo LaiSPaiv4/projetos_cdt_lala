@@ -1,3 +1,4 @@
+'''Rota do dashboard'''
 from flask import Blueprint, render_template
 from app.models.user import FinancialProfile  # Usando o modelo correto aqui!
 from app import db
