@@ -67,6 +67,7 @@ PROJETOS_CDT_LALA/
 
 ---
 
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **Backend:** Python e Flask
