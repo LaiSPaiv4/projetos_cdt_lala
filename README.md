@@ -17,6 +17,56 @@ O **Pinguim Financeiro** é uma aplicação web interativa desenvolvida em Flask
 
 ---
 
+## 📂 Estrutura do Projeto
+
+Abaixo está a organização de pastas e arquivos estruturada na arquitetura MVC (Model-View-Controller) utilizada no desenvolvimento:
+
+```text
+PROJETOS_CDT_LALA/
+│
+├── Projeto_financas/
+│   ├── app/
+│   │   ├── models/                   # Modelos de dados do sistema
+│   │   │   ├── financial_plan.py
+│   │   │   ├── goal.py
+│   │   │   └── user.py
+│   │   ├── routes/                   # Controladores e rotas das páginas
+│   │   │   ├── auth_routes.py
+│   │   │   ├── dashboard_routes.py
+│   │   │   ├── financial_routes.py
+│   │   │   └── onboarding_routes.py
+│   │   ├── services/                 # Lógicas de negócios e cálculos separados
+│   │   │   ├── credit_analysis.py
+│   │   │   ├── finance_service.py
+│   │   │   └── onboarding.py
+│   │   ├── static/                   # Arquivos estáticos front-end
+│   │   │   ├── css/
+│   │   │   │   ├── script.js
+│   │   │   │   └── style.css
+│   │   │   └── img/                  # Imagens e ícones
+│   │   ├── templates/                # Telas estruturadas em HTML
+│   │   │   ├── base.html
+│   │   │   ├── dashboard.html
+│   │   │   ├── index.html
+│   │   │   ├── login.html
+│   │   │   ├── onboarding.html
+│   │   │   └── register.html
+│   │   ├── __init__.py               # Inicialização do app Flask
+│   │   └── config.py                 # Configurações do ambiente
+│   │
+│   ├── instance/
+│   │   └── projeto.db                # Banco de dados local (SQLite)
+│   │
+│   ├── README.md
+│   ├── requirements.txt              # Dependências do Python para o Render
+│   └── run.py                        # Arquivo principal que roda o projeto
+│
+├── venv/                             # Ambiente virtual Python
+├── .gitignore                        # Arquivos ignorados pelo Git
+└── LICENSE                           # Licença do repositório
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **Backend:** Python e Flask
