@@ -91,14 +91,14 @@ python run.py
 ```
 
 ### 3. Abra o seu navegador e acesse o endereço local gerado pelo Flask:
-[[http://127.0.0.1:5000/](http://127.0.0.1:5000/)](https://pinguim-financeiro.onrender.com)
+(https://pinguim-financeiro.onrender.com)
 
 ---
 
 ## 👥 Autores
 
 Este projeto foi desenvolvido com muito carinho e dedicação por:
-* **Lais Renta**
+* **Lais Renata**
 * **Henrique Souza** 
 
 ---
